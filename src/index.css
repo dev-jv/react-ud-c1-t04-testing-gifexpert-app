@@ -4,4 +4,17 @@
 
 body {
     padding: 60px;
+    background-color: #21232A;
+    color: white;
+}
+
+input {
+    color: black;
+    font-size: 1.2rem;
+    width: 100%;
+
+}
+
+ol {
+    color: teal;
 }
