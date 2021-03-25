@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import {GifGridItem} from '../components/GifGridItem';
 
 export const GifGrid = ({ category }) => {
 
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
+
+    const [images, setImages] = useState([]);
 
     useEffect( () => {
         getGifs(); // ...just will run first time
@@ -11,7 +14,7 @@ export const GifGrid = ({ category }) => {
 
     const getGifs = async() => {
         let gifs;
-        const url = 'https://api.giphy.com/v1/gifs/search?q=saitama&limit=10&api_key=3mS6QgbKP3edjoePuaiWZ33dP77PhEyN';
+        const url = 'https://api.giphy.com/v1/gifs/search?q=saitama&limit=20&api_key=3mS6QgbKP3edjoePuaiWZ33dP77PhEyN';
         const resp = await fetch(url);
         const {data} = await resp.json();
 
@@ -24,6 +27,7 @@ export const GifGrid = ({ category }) => {
         });
         // console.log(data);
         console.log(gifs);
+        setImages(gifs)
     };
 
     // getGifs();
@@ -31,8 +35,13 @@ export const GifGrid = ({ category }) => {
     return (
         <>
             <h3>{ category }</h3>
-            <h3>{ count }</h3>
-            <button onClick={() => setCount(count + 1)}>+1</button>
+            {
+                images.map(img =>
+                    // <ol key={img.id}>{img.title}</ol>
+                    // <GifGridItem key={ img.id } img={ img }/>
+                    <GifGridItem key={ img.id } { ...img }/>
+                )
+            }
         </>
     )
 };

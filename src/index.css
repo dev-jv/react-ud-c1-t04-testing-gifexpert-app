@@ -6,6 +6,8 @@ body {
     padding: 60px;
     background-color: #21232A;
     color: white;
+
+    height: 1000px;
 }
 
 input {
@@ -17,4 +19,42 @@ input {
 
 ol {
     color: teal;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    width: 270px;
+    height: 200px;
+    margin: 2px;
+    padding: 2px;
+    background-color: black;
+}
+
+.img-card {
+    height: 150px;
+
+}
+
+.card-columns {
+    margin-bottom:.75rem;
+
+    -webkit-column-count:4;
+    -moz-column-count:4;
+    column-count:4;
+    -webkit-column-gap:1.25rem;
+    -moz-column-gap:1.25rem;
+    column-gap:1.25rem;
+    orphans:1;
+    widows:1;
+
+
+    display:inline-block;
+    width:100%;
+
+
+}
+
+.card {
+
 }
