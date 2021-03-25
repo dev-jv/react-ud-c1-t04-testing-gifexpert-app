@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {AddCategory} from "./components/AddCategory";
+import {GifGrid} from "./components/GifGrid";
 
 const GifExpertApp = ( {inputValue}) => {
     // const categories = ['Grimm', 'Fringe', 'The X-Files', 'Supernatural'];
@@ -18,9 +19,10 @@ const GifExpertApp = ( {inputValue}) => {
             {/*<button onClick={ handleAdd }>Agregar</button>*/}
             <ol>
                 {
-                    categories.map(category => {
-                        return <li key={ category }>{ category }</li>
-                    })
+                    categories.map(category => (
+                        <GifGrid key={ category } category={ category }/>
+                    ))
+                        // <li key={ category }>{ category }</li>
                 }
             </ol>
         </>
