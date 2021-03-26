@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 
 export const AddCategory = ({setCategories}) => {
 
-    const [inputValue, setInputValue] = useState(''); // '...'
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (e) => {
-        // console.log(e.target.value);
-        setInputValue( e.target.value ); // e.target.value is the value in the box!
+        setInputValue( e.target.value );
     };
 
-    const handleSubmit = e => { // to press enter!
+    const handleSubmit = e => {
         e.preventDefault();
-        // console.log('Enter!');
         if(inputValue.trim().length > 2){
             setCategories(cats => [inputValue, ...cats]);
             setInputValue('');
