@@ -1,22 +1,29 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {GifGridItem} from '../components/GifGridItem';
-import {getGifs} from "../helpers/getGifs";
+// import {GifGridItem} from '../components/GifGridItem';
+// import {getGifs} from "../helpers/getGifs";
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const GifGrid = ({ category }) => {
 
-    // const [count, setCount] = useState(0);
+    // ----------------------------------------- <> Way 3: Custom Hooks!
+    const { data, loading } = useFetchGifs();
+    console.log(data);
+    // console.log(loading);
 
-    const [images, setImages] = useState([]);
+    // ----------------------------------------- <> Way 2: Helpers! - getGifs from '../helpers/getGifs'
+    // const [images, setImages] = useState([]);
+    //
+    // useEffect( () => {
+    //     getGifs( category )
+    //         .then( imgs => setImages(imgs) )
+    // }, [ category ] );
 
+    // ------------------------------------------- <> Way 1: getGifs from here
     // useEffect( () => {
     //     getGifs(); // ...just will run first time
     // }, []);
-
-    useEffect( () => {
-        getGifs( category )
-            .then( imgs => setImages(imgs) )
-    }, [ category ] );
 
     // const getGifs = async() => {
     //     let gifs;
@@ -42,15 +49,16 @@ export const GifGrid = ({ category }) => {
     return (
         <>
             <h3>{ category }</h3>
-            <div className="card-grid">
-                {
-                    images.map(img =>
-                        // <ol key={img.id}>{img.title}</ol>
-                        // <GifGridItem key={ img.id } img={ img }/>
-                        <GifGridItem key={ img.id } { ...img }/>
-                    )
-                }
-            </div>
+            { loading ? 'Loading... ' : 'Loaded data'}
+            {/*<div className="card-grid">*/}
+            {/*    {*/}
+            {/*        images.map(img =>*/}
+            {/*            // <ol key={img.id}>{img.title}</ol>*/}
+            {/*            // <GifGridItem key={ img.id } img={ img }/>*/}
+            {/*            <GifGridItem key={ img.id } { ...img }/>*/}
+            {/*        )*/}
+            {/*    }*/}
+            {/*</div>*/}
         </>
     )
 };
