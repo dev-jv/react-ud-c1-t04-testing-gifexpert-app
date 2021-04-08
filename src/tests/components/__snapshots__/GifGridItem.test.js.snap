@@ -4,7 +4,12 @@ exports[`[37m[44m/> Testing in <GifGridItem/>[49m[39m Test 1: Should show <G
 <div
   className="card animate__animated animate__fadeIn"
 >
-  <img />
-  <p />
+  <img
+    alt="Any title"
+    src="https://localhost/some.jpg"
+  />
+  <p>
+    Any title
+  </p>
 </div>
 `;
