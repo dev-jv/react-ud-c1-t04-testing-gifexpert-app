@@ -4,6 +4,10 @@ exports[`[37m[44mTesting in <AddCategory />[49m[39m 1: Should show correctly
 <form
   onSubmit={[Function]}
 >
+  <p>
+     
+     
+  </p>
   <input
     onChange={[Function]}
     type="text"
